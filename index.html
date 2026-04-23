@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Saint Architects website is currently being updated. Contact us by email."
+    />
+    <title>Saint Architects | Updating</title>
+    <style>
+      :root {
+        --bg: #030303;
+        --text: #f7f4ee;
+        --muted: rgba(247, 244, 238, 0.64);
+        --line: rgba(247, 244, 238, 0.18);
+        --glow: rgba(255, 255, 255, 0.22);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        min-height: 100%;
+        background: var(--bg);
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        overflow: hidden;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 18% 22%, rgba(255, 255, 255, 0.13), transparent 22rem),
+          radial-gradient(circle at 82% 74%, rgba(255, 255, 255, 0.08), transparent 24rem),
+          linear-gradient(135deg, #000 0%, #070707 48%, #111 100%);
+        font-family: "Cormorant Garamond", "Bodoni 72", "Didot", Georgia, serif;
+      }
+
+      body::before,
+      body::after {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        content: "";
+      }
+
+      body::before {
+        opacity: 0.18;
+        background-image:
+          linear-gradient(var(--line) 1px, transparent 1px),
+          linear-gradient(90deg, var(--line) 1px, transparent 1px);
+        background-size: 72px 72px;
+      }
+
+      body::after {
+        opacity: 0.28;
+        background:
+          linear-gradient(115deg, transparent 0 42%, rgba(255, 255, 255, 0.08) 42.2%, transparent 43%),
+          linear-gradient(295deg, transparent 0 56%, rgba(255, 255, 255, 0.06) 56.2%, transparent 57%);
+      }
+
+      main {
+        position: relative;
+        display: grid;
+        min-height: 100vh;
+        place-items: center;
+        padding: clamp(1.5rem, 4vw, 4rem);
+      }
+
+      .frame {
+        position: absolute;
+        inset: clamp(1rem, 3vw, 2.5rem);
+        border: 1px solid var(--line);
+        animation: frameIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+
+      .frame::before,
+      .frame::after {
+        position: absolute;
+        width: clamp(5rem, 15vw, 13rem);
+        height: 1px;
+        background: var(--text);
+        box-shadow: 0 0 26px var(--glow);
+        content: "";
+      }
+
+      .frame::before {
+        top: -1px;
+        left: 8%;
+      }
+
+      .frame::after {
+        right: 8%;
+        bottom: -1px;
+      }
+
+      .content {
+        position: relative;
+        z-index: 1;
+        width: min(100%, 980px);
+        text-align: center;
+      }
+
+      .eyebrow {
+        margin: 0 0 clamp(1.8rem, 4vw, 3rem);
+        font-family: Avenir, "Helvetica Neue", sans-serif;
+        font-size: clamp(0.68rem, 1.3vw, 0.82rem);
+        font-weight: 500;
+        letter-spacing: 0.52em;
+        line-height: 1.6;
+        text-transform: uppercase;
+        color: var(--muted);
+        animation: revealUp 1s 0.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(4rem, 13vw, 13.5rem);
+        font-weight: 300;
+        letter-spacing: -0.08em;
+        line-height: 0.78;
+        text-transform: uppercase;
+        text-wrap: balance;
+        animation: revealUp 1.2s 0.24s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+
+      .statement {
+        max-width: 720px;
+        margin: clamp(2rem, 5vw, 4.5rem) auto 0;
+        font-family: Avenir, "Helvetica Neue", sans-serif;
+        font-size: clamp(1rem, 2vw, 1.32rem);
+        font-weight: 300;
+        letter-spacing: 0.06em;
+        line-height: 1.85;
+        color: var(--muted);
+        animation: revealUp 1s 0.42s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+
+      .contact {
+        display: inline-flex;
+        position: relative;
+        align-items: center;
+        gap: 0.9rem;
+        margin-top: clamp(2rem, 4vw, 3rem);
+        padding: 1.05rem 1.35rem;
+        overflow: hidden;
+        border: 1px solid rgba(247, 244, 238, 0.3);
+        border-radius: 999px;
+        color: var(--text);
+        font-family: Avenir, "Helvetica Neue", sans-serif;
+        font-size: clamp(0.82rem, 1.6vw, 0.95rem);
+        letter-spacing: 0.16em;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition:
+          border-color 420ms ease,
+          box-shadow 420ms ease,
+          color 420ms ease,
+          transform 420ms ease;
+        animation: revealUp 1s 0.58s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+
+      .contact::before {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: var(--text);
+        transform: translateX(-102%) skewX(-14deg);
+        transition: transform 520ms cubic-bezier(0.16, 1, 0.3, 1);
+        content: "";
+      }
+
+      .contact::after {
+        width: 0.52rem;
+        height: 0.52rem;
+        border-radius: 50%;
+        background: currentColor;
+        box-shadow: 0 0 18px currentColor;
+        content: "";
+      }
+
+      .contact:hover,
+      .contact:focus-visible {
+        border-color: var(--text);
+        color: var(--bg);
+        box-shadow: 0 0 42px rgba(255, 255, 255, 0.18);
+        outline: none;
+        transform: translateY(-4px);
+      }
+
+      .contact:hover::before,
+      .contact:focus-visible::before {
+        transform: translateX(0) skewX(0);
+      }
+
+      .orb {
+        position: fixed;
+        width: clamp(14rem, 28vw, 28rem);
+        aspect-ratio: 1;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 50%;
+        pointer-events: none;
+        opacity: 0.8;
+      }
+
+      .orb.one {
+        top: 12%;
+        right: 9%;
+      }
+
+      .orb.two {
+        bottom: 10%;
+        left: 6%;
+        width: clamp(10rem, 22vw, 22rem);
+      }
+
+      @keyframes revealUp {
+        from {
+          opacity: 0;
+          transform: translateY(34px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes frameIn {
+        from {
+          opacity: 0;
+          transform: scale(0.965);
+        }
+
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @media (max-width: 680px) {
+        body {
+          overflow: auto;
+        }
+
+        .frame {
+          inset: 0.85rem;
+        }
+
+        h1 {
+          letter-spacing: -0.065em;
+          line-height: 0.84;
+        }
+
+        .eyebrow {
+          letter-spacing: 0.34em;
+        }
+
+        .statement {
+          line-height: 1.65;
+        }
+
+        .contact {
+          max-width: 100%;
+          letter-spacing: 0.1em;
+          text-align: center;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main aria-labelledby="page-title">
+      <div class="frame" aria-hidden="true"></div>
+      <div class="orb one" aria-hidden="true"></div>
+      <div class="orb two" aria-hidden="true"></div>
+
+      <section class="content">
+        <p class="eyebrow">Saint Architects</p>
+        <h1 id="page-title">Website<br />Updating</h1>
+        <p class="statement">
+          Our website is currently being updated. For inquiries, collaborations,
+          and project requests, please contact us by email.
+        </p>
+        <a class="contact" href="mailto:architectssaint@gmail.com">
+          architectssaint@gmail.com
+        </a>
+      </section>
+    </main>
+  </body>
+</html>
